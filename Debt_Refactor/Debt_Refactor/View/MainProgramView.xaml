@@ -1,0 +1,93 @@
+﻿<Window x:Class="Debt_Refactor.View.MainProgramView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Debt_Refactor"
+        xmlns:viewModel="clr-namespace:Debt_Refactor.ViewModel"
+        xmlns:view="clr-namespace:Debt_Refactor.View"
+        mc:Ignorable="d"
+        Title="My Debt Book" Height="500" MinHeight="500" Width="800" MinWidth="800">
+
+    <Window.DataContext>
+        <viewModel:mainViewModel/>
+    </Window.DataContext>
+
+    <Grid Name="DebtGrid" Margin="0,2,-0.667,-0.333" HorizontalAlignment="Stretch" Background="LightCyan" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="22.5" />
+            <RowDefinition Height="481.6" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="380.8" />
+            <ColumnDefinition Width="75.2"/>
+            <ColumnDefinition Width="32.8"/>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+
+        <Label Margin="8,4.6,50,449" 
+               Grid.Column="0"   
+               Content="Debt:" 
+               VerticalAlignment="Stretch" Grid.ColumnSpan="2" Grid.Row="1"/>
+
+        <ListBox ItemsSource="{Binding Path= Persons}"
+                 IsSynchronizedWithCurrentItem="True"
+                 Name="ListboxDebts"
+                 Grid.Column="0" 
+                 Margin="24,33,47,86"  
+                 ScrollViewer.VerticalScrollBarVisibility="Visible" 
+                 Grid.Row="1"
+                 SelectedItem ="{Binding CurrentDebitor, Mode = TwoWay}"
+                 SelectionMode="Single"
+                 />
+
+        <Label Margin="10.2,6.6,0,447"  
+               Grid.Row ="1" 
+               Grid.Column="1"
+               VerticalAlignment="Stretch" >Name:</Label>
+
+        <Label Margin="10.2,44.6,297.6,409" 
+               Grid.Row="1" 
+               Grid.Column="1" Grid.ColumnSpan="3" VerticalAlignment="Stretch" >Amount:</Label>
+
+        <TextBox Margin="0,17.8,30.6,0" 
+                         Name="tbxName" 
+                         VerticalAlignment="Top" 
+                         HorizontalAlignment="Left" 
+                         MinWidth="58" 
+                         Grid.Row="1"
+                         Grid.Column="3" Width="264" Height="18"
+                         Text="{Binding Path= CurrentPersonName}" 
+                />
+        <TextBox Margin="0,54.8,30.6,0" 
+                         Name="tbxAmount"
+                         VerticalAlignment="Top" 
+                         HorizontalAlignment="Left" 
+                         Grid.Row="1"
+                         Grid.Column="3" Width="264" Height="18"
+                         Text="{Binding Path = NewValue}"
+                />
+        <Button ToolTip="Add New" 
+                        Content="_Add"
+                        Name="BtnAddNew"
+                        VerticalAlignment="Top" 
+                        HorizontalAlignment="Left"
+                        Margin="0,95.8,30.6,0"
+                        Grid.Row="1"
+                        Grid.Column="3" Width="150" Height="20"
+                        Command="{Binding Path = AddDebtClickCommand}"
+                        />
+
+        <Button ToolTip="History of Selected"
+                        Content="_History" 
+                        Name="BtnInfo"
+                        VerticalAlignment="Top" 
+                        HorizontalAlignment="Left"
+                        Margin="0,145.8,30.6,0"
+                        Grid.Row="1"
+                        Grid.Column="3" Width="150" Height="19"
+                        Command="{Binding GetPersonsHistory}"
+                />
+    </Grid>
+</Window>

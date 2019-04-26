@@ -1,0 +1,6 @@
+C:\Users\mie24\Desktop\Refactor_Debt\Debt_Refactor\Debt_Refactor\obj\Release\View\PersonView.g.cs
+C:\Users\mie24\Desktop\Refactor_Debt\Debt_Refactor\Debt_Refactor\obj\Release\View\MainProgramView.g.cs
+C:\Users\mie24\Desktop\Refactor_Debt\Debt_Refactor\Debt_Refactor\obj\Release\App.g.cs
+C:\Users\mie24\Desktop\Refactor_Debt\Debt_Refactor\Debt_Refactor\obj\Release\GeneratedInternalTypeHelper.g.cs
+C:\Users\mie24\Desktop\Refactor_Debt\Debt_Refactor\Debt_Refactor\obj\Release\Debt_Refactor_MarkupCompile.cache
+C:\Users\mie24\Desktop\Refactor_Debt\Debt_Refactor\Debt_Refactor\obj\Release\Debt_Refactor_MarkupCompile.lref
